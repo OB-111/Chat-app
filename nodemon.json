@@ -1,0 +1,8 @@
+
+{
+    "watch": ["backend/src"],
+    "ext": "ts,js",
+    "ignore": ["backend/dist"],
+    "exec": "node --loader ./bootstrap.js --experimental-specifier-resolution=node backend/src/index.ts"
+  }
+  
