@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --loader ts-node/esm --experimental-specifier-resolution=node backend/src/index.ts"
-
+    "start": "nodemon"
   },
   "type": "module",
   "keywords": [],
@@ -18,11 +17,13 @@
     "@types/jsonwebtoken": "^9.0.6",
     "nodemon": "^3.1.2",
     "ts-node": "^10.9.2",
-    "tsx": "^4.11.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.11.2",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "@prisma/client": "^5.14.0",
+    "@types/node": "^20.14.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",

@@ -34,7 +34,7 @@ export const signup = async (req: Request, res: Response) => {
 
     const newUser = await prisma.user.create({
         data: {
-            fullname,
+            fullName:fullname,
             username,
             password:  hashedPassword,
             gender,
@@ -48,7 +48,7 @@ export const signup = async (req: Request, res: Response) => {
         generateToken(newUser.id,res)
          res.status(201).json({
             id:newUser.id,
-            fullname: newUser.fullname,
+            fullName: newUser.fullName,
             username: newUser.username,
             profilePic: newUser.profilePic
         })
@@ -85,7 +85,7 @@ export const login = async (req: Request, res: Response) => {
         generateToken(user?.id,res);
         res.status(200).json({
             id: user?.id,
-            fullname: user?.fullname,
+            fullName: user?.fullName,
             username: user?.username,
             profilePic: user?.profilePic
         })
@@ -110,7 +110,7 @@ export const logout = async (req: Request, res: Response) => {
 
 export const getMe = async (req: Request, res: Response) => {                                                                                                                        
     try {
-        const user = await prisma.user.findUnique({where: {id: req.user?.id}})
+        const user = await prisma.user.findUnique({where: {id: req.user.id}})
         if(!user){
             return res.status(400).json({
                 message: "Invalid User"
@@ -118,7 +118,7 @@ export const getMe = async (req: Request, res: Response) => {
         }
         res.status(200).json({
             id: user?.id,
-            fullname: user?.fullname,
+            fullName: user.fullName,
             username: user?.username,
             profilePic: user?.profilePic
         })

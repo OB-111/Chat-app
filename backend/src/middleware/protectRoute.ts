@@ -29,7 +29,8 @@ const protectRoute = async (req:Request, res:Response,next:NextFunction) =>{
         if(!decoded){
             return res.status(401).json({msg:'Invalid token, authorization denied'})
         }
-        const user = await prisma.user.findUnique({where:{id:decoded.userId},select:{id:true,username:true,fullname:true,profilePic:true}})
+        const user = await prisma.user.findUnique({where:{id:decoded.userId},select: { id: true, username: true, fullName: true, profilePic: true },
+        })
         if(!user){
             return res.status(401).json({msg:'User not found, authorization denied'})
         }
